@@ -86,7 +86,7 @@ def calculate_radius_characteristic_curve(radius_function, derivative_radius_fun
 
 # Read parameters from a text file
 text_file = 'helix_constant_radius'
-with open('C:/Users/tutko/Desktop/Vysledne-plochy/' + text_file + '/' + text_file + '.txt', 'r') as file:
+with open('C:/Users/tutko/Desktop/Vysledne-plochy/inputs/' + text_file + '.txt', 'r') as file:
     lines = file.readlines()
 
 # Call the functions
@@ -145,7 +145,34 @@ def number_of_spheres(t_values):
     print("Number of spheres:", number_of_spheres)
     return number_of_spheres'''
 
-h = step(lines)
-t_values = t_values(lines, h)
-shift_array = shift_array(lines)
-n = number_of_spheres(lines, t_values)
+def is_constant(func, domain):
+    """
+    Check if a function is constant within a given domain.
+    Parameters:
+    - func: The function to be checked.
+    - domain: A list of input values to evaluate the function.
+    Returns:
+    - True if the function is constant within the domain, False otherwise.
+    """
+    
+    # Evaluate the function for the first input
+    constant_value = func(domain[0])
+    
+    # Check if the function outputs the same value for all inputs
+    for input_value in domain[1:]:
+        if func(input_value) != constant_value:
+            return False
+    
+    return True
+
+# Example usage
+# Define a function
+def my_function(x):
+    return x**2
+
+# Define a domain to check
+domain = [-3, -2, -1, 0, 1, 2, 3]
+
+# Check if the function is constant within the domain
+result = is_constant(my_function, domain)
+print("Is the function constant?", result)
