@@ -16,8 +16,8 @@ bpy.ops.object.delete(use_global=False, confirm=False)
 t = sp.symbols('t')
 
 # Read parameters from a text file
-text_file = 'verschluss'
-with open('C:/Users/tutko/Desktop/Vysledne-plochy/inputs/' + text_file + '.txt', 'r') as file:
+input_file = 'function_radius/verschluss'
+with open('C:/Users/tutko/Desktop/Vysledne-plochy/inputs/' + input_file + '.txt', 'r') as file:
     lines = file.readlines()
 
 # Call the functions
@@ -127,7 +127,7 @@ for i in range(number_of_spheres):
 #Update the scene
 bpy.context.view_layer.update()
 # Save the Blender file
-bpy.ops.wm.save_as_mainfile(filepath='C:/Users/tutko/Desktop/Vysledne-plochy/spheres/function_radius/' + text_file + '.blend') 
+bpy.ops.wm.save_as_mainfile(filepath='C:/Users/tutko/Desktop/Vysledne-plochy/spheres/' + input_file + '.blend') 
 
 #Time computation
 end_time = time.time()
